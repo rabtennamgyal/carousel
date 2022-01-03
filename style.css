@@ -53,8 +53,19 @@ html, body {
 
 .container .navDots {
     position: absolute;
-    border: .1px solid #ffffff;
+    /* border: .1px solid #ffffff; */
     height: 3rem;
     width: 50rem;
     bottom: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container .navDots .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    border: .1px solid #ffffff;
+    border-radius: 20px;
 }
