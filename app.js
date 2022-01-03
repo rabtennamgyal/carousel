@@ -2,6 +2,7 @@ const imgs = document.querySelectorAll('.imgs')
 
 const rightArrow = document.getElementById('right')
 const leftArrow = document.getElementById('left')
+const dot = document.querySelectorAll('.dot')
 
 let cur = 0
 let max = imgs.length
@@ -22,12 +23,13 @@ function styleDot() {
 
 styleDot()
 
+
 imgs.forEach((el, i) => {
     el.style.transform = `translateX(${100 * (i - cur)}%)`
 })
 
 
-rightArrow.addEventListener('click', () => {
+function slideRight() {
     if (cur === max - 1) {
         cur = 0
     } else {
@@ -38,10 +40,10 @@ rightArrow.addEventListener('click', () => {
         el.style.transform = `translateX(${100 * (i - cur)}%)`
     })
     styleDot()
-})
+}
 
 
-leftArrow.addEventListener('click', () => {
+function slideLeft() {
     if (cur === 0) {
         cur = max - 1
     } else {
@@ -52,4 +54,38 @@ leftArrow.addEventListener('click', () => {
         el.style.transform = `translateX(${100 * (i - cur)}%)`
     })
     styleDot()
+}
+
+
+rightArrow.addEventListener('click', () => {
+    slideRight()
 })
+
+
+leftArrow.addEventListener('click', () => {
+    slideLeft()
+})
+
+
+dot.forEach(el => {
+    el.addEventListener('click', (e) => {
+        const curDot = e.target.classList[1]
+        let dots = Array.from(dot)
+        let dotClass = dots.map(el => el.classList[1])
+
+        for (let i = 0; i < dotClass.length; i++) {
+            if (curDot === dotClass[i]) {
+                cur = i
+                styleDot()
+                imgs.forEach((el, i) => {
+                    el.style.transform = `translateX(${100 * (i - cur)}%)`
+                })
+            }
+        }
+    })
+})
+
+
+setInterval(() => {
+    slideRight()
+}, 10000)
