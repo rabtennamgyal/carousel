@@ -1,0 +1,60 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html, body {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    background: #000;
+}
+
+.container {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container .arrow {
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    color: #fff;
+    font-size: 3rem;
+    border-radius: 50px;
+}
+
+.container .arrow:hover {
+    color: #ffffff6c;
+    transition: 0.7s ease-in-out;
+}
+
+.container .imgSlider {
+    position: relative;
+    display: flex;
+    border: solid #ffffff;
+    height: 80%;
+    width: 60%;
+    overflow: hidden;
+}
+
+.container .imgSlider .imgs {
+    position: absolute;
+    transition: .7s ease-in-out;
+    width: 100%;
+    height: 100%;
+}
+/* 
+.container .navDots {
+    position: absolute;
+    border: .1px solid #ffffff;
+    height: 3rem;
+    width: 50rem;
+    bottom: 1rem;
+} */
