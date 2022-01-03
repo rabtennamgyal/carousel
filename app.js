@@ -21,8 +21,6 @@ rightArrow.addEventListener('click', () => {
     imgs.forEach((el, i) => {
         el.style.transform = `translateX(${100 * (i - cur)}%)`
     })
-
-    console.log(cur)
 })
 
 
@@ -36,6 +34,4 @@ leftArrow.addEventListener('click', () => {
     imgs.forEach((el, i) => {
         el.style.transform = `translateX(${100 * (i - cur)}%)`
     })
-
-    console.log(cur)
 })
